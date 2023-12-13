@@ -9,9 +9,9 @@ function Navbar() {
       </div>
 
       <div className="icons">
-        <img src="/search.svg" alt="icon" />
-        <img src="/app.svg" alt="icon" />
-        <img src="/expand.svg" alt="icon" />
+        {/* <img src="/search.svg" alt="icon" className="icon" />
+        <img src="/app.svg" alt="icon" className="icon" />
+        <img src="/expand.svg" alt="icon" className="icon" /> */}
 
         <div className="notification">
           <img src="/notifications.svg" alt="" />
