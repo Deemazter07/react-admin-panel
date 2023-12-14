@@ -2,8 +2,10 @@ import { GridColDef } from "@mui/x-data-grid";
 import DataTable from "../../components/dataTable/DataTable";
 import { userRows } from "../../data";
 import "./users.scss";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Add from "../../components/add/Add";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchUserList } from "./redux/userActions";
 
 const columns: GridColDef[] = [
   {
@@ -68,6 +70,15 @@ const columns: GridColDef[] = [
 function Users() {
   const [open, setOpen] = useState(false);
 
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    // Call the fetchUserList action creator using dispatch
+    dispatch(fetchUserList() as any);
+  }, [dispatch]);
+
+  const { data, listLoading } = useSelector((state: any) => state.users);
+
   return (
     <div className="users">
       <div className="info">
@@ -76,14 +87,13 @@ function Users() {
           Add New User
         </button>
       </div>
-      <DataTable slug="users" columns={columns} rows={userRows} />
-      {/* TEST THE API */}
 
-      {/* {isLoading ? (
-        "Loading..."
-      ) : (
-        <DataTable slug="users" columns={columns} rows={data} />
-      )} */}
+      <DataTable
+        slug="users"
+        columns={columns}
+        rows={data}
+        loading={listLoading}
+      />
       {open && <Add slug="user" columns={columns} setOpen={setOpen} />}
     </div>
   );

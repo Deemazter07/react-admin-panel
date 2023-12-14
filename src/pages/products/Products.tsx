@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./products.scss";
 import DataTable from "../../components/dataTable/DataTable";
 import Add from "../../components/add/Add";
 import { products } from "../../data";
 import { GridColDef } from "@mui/x-data-grid";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchProductList } from "./redux/productActions";
 
 const columns: GridColDef[] = [
   { field: "id", headerName: "ID", flex: 0 },
@@ -56,6 +58,14 @@ const columns: GridColDef[] = [
 function Products() {
   const [open, setOpen] = useState(false);
 
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchProductList() as any);
+  }, [dispatch]);
+
+  const { data, listLoading } = useSelector((state: any) => state.products);
+
   return (
     <div className="products">
       <div className="info">
@@ -64,14 +74,12 @@ function Products() {
           Add New Product
         </button>
       </div>
-      <DataTable slug="products" columns={columns} rows={products} />
-      {/* TEST THE API */}
-
-      {/* {isLoading ? (
-        "Loading..."
-      ) : (
-        <DataTable slug="products" columns={columns} rows={data} />
-      )} */}
+      <DataTable
+        slug="products"
+        columns={columns}
+        rows={data}
+        loading={listLoading}
+      />
       {open && <Add slug="product" columns={columns} setOpen={setOpen} />}
     </div>
   );

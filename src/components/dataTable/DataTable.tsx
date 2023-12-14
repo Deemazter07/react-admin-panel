@@ -1,14 +1,16 @@
 import { DataGrid, GridColDef, GridToolbar } from "@mui/x-data-grid";
 import "./dataTable.scss";
 import { Link } from "react-router-dom";
+import { LinearProgress } from "@mui/material";
 
 type Props = {
   columns: GridColDef[];
   rows: object[];
   slug: string;
+  loading?: boolean;
 };
 
-const DataTable = ({ columns, rows, slug }: Props) => {
+const DataTable = ({ columns, rows, slug, loading }: Props) => {
   // TEST THE API
 
   const handleDelete = (id: number) => {
@@ -38,7 +40,7 @@ const DataTable = ({ columns, rows, slug }: Props) => {
     <div className="dataTable">
       <DataGrid
         className="dataGrid"
-        rows={rows}
+        rows={loading ? [] : rows}
         columns={[...columns, actionColumn]}
         initialState={{
           pagination: {
@@ -47,7 +49,8 @@ const DataTable = ({ columns, rows, slug }: Props) => {
             },
           },
         }}
-        slots={{ toolbar: GridToolbar }}
+        slots={{ toolbar: GridToolbar, loadingOverlay: LinearProgress }}
+        loading={loading}
         slotProps={{
           toolbar: {
             showQuickFilter: true,

@@ -50,10 +50,10 @@ function App() {
           path: "/products",
           element: <Products />,
         },
-        {
-          path: "/products/:id",
-          element: <Product />,
-        },
+        // {
+        //   path: "/products/:id",
+        //   element: <Product />,
+        // },
       ],
     },
   ]);
