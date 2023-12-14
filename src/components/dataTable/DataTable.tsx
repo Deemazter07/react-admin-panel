@@ -13,10 +13,10 @@ type Props = {
 const DataTable = ({ columns, rows, slug, loading }: Props) => {
   // TEST THE API
 
-  const handleDelete = (id: number) => {
-    //delete the item
-    // mutation.mutate(id)
-  };
+  // const handleDelete = (id: number) => {
+  //   //delete the item
+  //   // mutation.mutate(id)
+  // };
 
   const actionColumn: GridColDef = {
     field: "action",
@@ -28,7 +28,10 @@ const DataTable = ({ columns, rows, slug, loading }: Props) => {
           <Link to={`/${slug}/${params.row.id}`}>
             <img src="/view.svg" alt="" />
           </Link>
-          <div className="delete" onClick={() => handleDelete(params.row.id)}>
+          <div
+            className="delete"
+            // onClick={() => handleDelete(params.row.id)}
+          >
             <img src="/delete.svg" alt="" />
           </div>
         </div>

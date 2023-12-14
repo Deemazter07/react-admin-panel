@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import "./products.scss";
 import DataTable from "../../components/dataTable/DataTable";
 import Add from "../../components/add/Add";
-import { products } from "../../data";
 import { GridColDef } from "@mui/x-data-grid";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProductList } from "./redux/productActions";

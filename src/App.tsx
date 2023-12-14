@@ -7,7 +7,6 @@ import Navbar from "./components/navbar/Navbar";
 import Menu from "./components/menu/Menu";
 import Footer from "./components/footer/Footer";
 import User from "./pages/user/User";
-import Product from "./pages/product/Product";
 import ErrorBoundary from "./components/errorBoundary/ErrorBoundary";
 
 function Layout() {

@@ -9,11 +9,11 @@ type Props = {
 };
 
 function Add({ slug, columns, setOpen }: Props) {
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
+  // function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  //   e.preventDefault();
 
-    // call API
-  }
+  //   // call API
+  // }
 
   function handleClose() {
     setOpen(false);
