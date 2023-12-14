@@ -2,6 +2,7 @@ import { DataGrid, GridColDef, GridToolbar } from "@mui/x-data-grid";
 import "./dataTable.scss";
 import { Link } from "react-router-dom";
 import { LinearProgress } from "@mui/material";
+import { mainPath } from "../../App";
 
 type Props = {
   columns: GridColDef[];
@@ -26,13 +27,13 @@ const DataTable = ({ columns, rows, slug, loading }: Props) => {
       return (
         <div className="action">
           <Link to={`/${slug}/${params.row.id}`}>
-            <img src="/view.svg" alt="" />
+            <img src={`${mainPath}/view.svg`} alt="" />
           </Link>
           <div
             className="delete"
             // onClick={() => handleDelete(params.row.id)}
           >
-            <img src="/delete.svg" alt="" />
+            <img src={`${mainPath}/delete.svg`} alt="" />
           </div>
         </div>
       );

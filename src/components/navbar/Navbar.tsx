@@ -1,10 +1,11 @@
+import { mainPath } from "../../App";
 import "./navbar.scss";
 
 function Navbar() {
   return (
     <div className="navbar">
       <div className="logo">
-        <img src="vite.svg" alt="Logo" />
+        <img src={`${mainPath}/vite.svg`} alt="Logo" />
         <span>Admin Panel</span>
       </div>
 
@@ -14,7 +15,7 @@ function Navbar() {
         <img src="/expand.svg" alt="icon" className="icon" /> */}
 
         <div className="notification">
-          <img src="/notifications.svg" alt="" />
+          <img src={`${mainPath}/notifications.svg`} alt="" />
           <span>1</span>
         </div>
 
@@ -26,7 +27,7 @@ function Navbar() {
           <span>Kim</span>
         </div>
 
-        <img src="/settings.svg" alt="icon" />
+        <img src={`${mainPath}/settings.svg`} alt="icon" />
       </div>
     </div>
   );

@@ -9,6 +9,8 @@ import Footer from "./components/footer/Footer";
 import User from "./pages/user/User";
 import ErrorBoundary from "./components/errorBoundary/ErrorBoundary";
 
+export const mainPath = "/react-admin-panel";
+
 function Layout() {
   return (
     <div className="main">
@@ -29,24 +31,24 @@ function Layout() {
 function App() {
   const router = createBrowserRouter([
     {
-      path: "/",
+      path: `${mainPath}/`,
       element: <Layout />,
       errorElement: <ErrorBoundary />,
       children: [
         {
-          path: "/",
+          path: `${mainPath}/`,
           element: <Home />,
         },
         {
-          path: "/users",
+          path: `${mainPath}/users`,
           element: <Users />,
         },
         {
-          path: "/users/:id",
+          path: `${mainPath}/users/:id`,
           element: <User />,
         },
         {
-          path: "/products",
+          path: `${mainPath}/products`,
           element: <Products />,
         },
         // {
